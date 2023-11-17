@@ -6,7 +6,7 @@ class Auth {
             const [name, value] = cookie.trim().split("=");
 
             if (name === "sessionToken") {
-                return value;
+                return decodeURI(value);
             }
         }
 
