@@ -14,7 +14,7 @@ class Auth {
     }
 
     authorizationHeader() {
-        return this.getSessionToken();
+        return "Bearer " + this.getSessionToken();
     }
 }
 

@@ -1,5 +1,5 @@
 declare class Auth {
     getSessionToken(): string | null;
-    authorizationHeader(): string | null;
+    authorizationHeader(): string;
 }
 export { Auth };
