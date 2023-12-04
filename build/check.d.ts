@@ -1,11 +1,14 @@
 import { options } from "./types/options";
-declare class Score {
+declare class Check {
     private options;
     private baseURL;
     private client;
     private version;
     private auth;
     constructor(options: options);
-    collect(score: number): Promise<any>;
+    private isTimestampFresh;
+    private validateTimestamp;
+    authenticated(): Promise<any>;
+    adsViewed(): Promise<any>;
 }
-export { Score };
+export { Check };

@@ -1,11 +1,11 @@
 import { options } from "./types/options";
-declare class Score {
+declare class Init {
     private options;
     private baseURL;
     private client;
     private version;
     private auth;
     constructor(options: options);
-    collect(score: number): Promise<any>;
+    checkAuth(): Promise<any>;
 }
-export { Score };
+export { Init };
