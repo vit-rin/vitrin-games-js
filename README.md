@@ -54,10 +54,16 @@ Open ads modal on your game's different states like the initial game, end game, 
 vitrin.ads.open();
 ```
 
-Ads modal will be checked and closed automatically after viewed by the user, however, if you need to check whether ads viewed or not, use this method:
+Ads modal will be checked and closed automatically after viewed by the user, however, if you need to check manually whether ads is viewed or not, use this method:
 
 ```js
 vitrin.check.adsViewed();
+```
+
+And to close manually the ads modal call this method:
+
+```js
+vitrin.ads.close();
 ```
 
 Send the score to VitRin. make sure the type of the value passed to `collect()` method is number.
