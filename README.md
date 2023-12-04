@@ -1,6 +1,6 @@
 # VitRin Games JavaScript SDK
 
-This SDK lets developers to integrate their game with [VitRin](https://vit-rin.io) which is a digital wallet and collect game scores and rewards players.
+This SDK lets developers integrate their game with [VitRin](https://vit-rin.io) which is a digital wallet that collects game scores and rewards players.
 
 # Getting Started
 
@@ -25,7 +25,7 @@ yarn add @vit-rin/games-js
 Import as ES module:
 
 ```js
-import { Score } from "@vit-rin/games-js";
+import { VitGames } from "@vit-rin/games-js";
 ```
 
 Import from CDN:
@@ -36,19 +36,37 @@ Import from CDN:
 
 ## Construct
 
-Create new instance of Score and pass your game ID to it:
+Create new instance of VitGames and pass your game ID to it:
 
 ```js
-const score = new Score({ gameId: "YOUR_GAME_ID" });
+const vitrin = new VitGames({ gameId: "YOUR_GAME_ID" });
 ```
 
-Send score to VitRin:
+Check if the user is authenticated. If not, it redirects the user to the VitRin games login page. You should call this method at least at the first initial state of your game:
 
 ```js
-score.collect(SCORE_NUMBER);
+vitrin.check.authenticated();
 ```
 
-# Development
+Open ads modal on your game's different states like the initial game, end game, and etc.
+
+```js
+vitrin.ads.open();
+```
+
+Ads modal will be checked and closed automatically after viewed by the user, however, if you need to check whether ads viewed or not, use this method:
+
+```js
+vitrin.check.adsViewed();
+```
+
+Send the score to VitRin. make sure the type of the value passed to `collect()` method is number.
+
+```js
+vitrin.score.collect(SCORE_NUMBER);
+```
+
+# Development and contribution
 
 ## Install
 
@@ -60,7 +78,7 @@ npm i
 
 ## Build
 
-To build umd bundles, run:
+To build UMD bundles, run:
 
 ```bash
 npm run build
