@@ -1,5 +1,5 @@
 class Auth {
-    getSessionToken(): string | null {
+    getSessionToken(): string {
         const cookies = document.cookie.split(";");
 
         for (const cookie of cookies) {
@@ -10,11 +10,16 @@ class Auth {
             }
         }
 
-        return null;
+        throw new Error("Session token not exists");
     }
 
     authorizationHeader() {
-        return "Bearer " + this.getSessionToken();
+        try {
+            const sessionToken = this.getSessionToken();
+            return "Bearer " + sessionToken;
+        } catch (error) {
+            console.error("Error in authorization header:", error);
+        }
     }
 }
 
