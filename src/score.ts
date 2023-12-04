@@ -2,12 +2,6 @@ import axios from "axios";
 import { Auth } from "./auth";
 import { options } from "./types/options";
 
-declare global {
-    interface Window {
-        Score: typeof Score;
-    }
-}
-
 class Score {
     private options: options;
 
@@ -48,6 +42,4 @@ class Score {
 
 export { Score };
 
-if (typeof window !== "undefined") {
-    window.Score = Score;
-}
+
