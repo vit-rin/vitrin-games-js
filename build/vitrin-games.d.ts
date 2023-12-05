@@ -1,4 +1,4 @@
-import { Ads } from "./ad";
+import { Ads } from "./ads";
 import { Check } from "./check";
 import { Score } from "./score";
 import { options } from "./types/options";
