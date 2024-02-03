@@ -1,6 +1,6 @@
 # VitRin Games JavaScript SDK
 
-This SDK lets developers integrate their game with [VitRin](https://vit-rin.io) which is a digital wallet that collects game scores and rewards players.
+This SDK lets developers integrate their game with [VitRin](https://vit-rin.com) which is a digital wallet that collects game scores and rewards players.
 
 # Getting Started
 

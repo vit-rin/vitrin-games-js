@@ -5,7 +5,7 @@ import { options } from "./types/options";
 class Check {
     private options: options;
 
-    private baseURL = "api.vit-rin.io";
+    private baseURL = "api.vit-rin.com";
 
     private client;
 
@@ -64,7 +64,7 @@ class Check {
 
             return true;
         } catch (error) {
-            window.location.href = "https://vit-rin.games/login";
+            window.location.href = "https://games.vit-rin.com/login";
 
             console.error("Error in auth check:", error);
             throw error;

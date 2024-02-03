@@ -31,7 +31,7 @@ class Ads {
         iframe.style.height = "100%";
         iframe.style.border = "none";
         iframe.src =
-            "https://vit-rin.games/ads/view?game_id=" + this.options.gameId;
+            "https://games.vit-rin.com/ads/view?game_id=" + this.options.gameId;
 
         modalContainer.appendChild(iframe);
 

@@ -5,7 +5,7 @@ import { options } from "./types/options";
 class Score {
     private options: options;
 
-    private baseURL = "api.vit-rin.io";
+    private baseURL = "api.vit-rin.com";
 
     private client;
 
