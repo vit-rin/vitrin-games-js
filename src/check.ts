@@ -64,7 +64,7 @@ class Check {
 
             return true;
         } catch (error) {
-            window.location.href = "https://games.vit-rin.com/login";
+            window.location.href = `https://account.vit-rin.com/login?next=${window.location.href}`;
 
             console.error("Error in auth check:", error);
             throw error;
