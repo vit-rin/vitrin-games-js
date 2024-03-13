@@ -1,45 +1,25 @@
-import axios from "axios";
-import { Auth } from "./auth";
-import { options } from "./types/options";
-
 class Score {
-    private options: options;
+    private static instance: Score;
 
-    private baseURL = "api.vit-rin.com";
+    private score = 0;
 
-    private client;
+    constructor() {}
 
-    private version = "v1";
+    public static getInstance(): Score {
+        if (!this.instance) {
+            this.instance = new Score();
+        }
 
-    private auth;
-
-    constructor(options: options) {
-        this.options = options;
-
-        this.client = axios.create({
-            baseURL: `https://${this.baseURL}`,
-        });
-
-        this.auth = new Auth();
+        return this.instance;
     }
 
-    async collect(score: number): Promise<any> {
-        const response = await this.client.post(
-            `/${this.version}/games/${this.options.gameId}/scores`,
-            {
-                score,
-            },
-            {
-                headers: {
-                    Authorization: this.auth.authorizationHeader(),
-                },
-            }
-        );
+    set(score: number) {
+        this.score = score;
+    }
 
-        return response.data;
+    get() {
+        return this.score;
     }
 }
 
 export { Score };
-
-
