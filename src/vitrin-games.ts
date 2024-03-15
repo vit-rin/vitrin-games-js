@@ -1,8 +1,10 @@
 import { Ads } from "./ads";
 import { Check } from "./check";
 import { Competition } from "./competition";
+import { Controls } from "./controls";
 import { Score } from "./score";
 import { options } from "./types/options";
+import { UI } from "./ui";
 
 declare global {
     interface Window {
@@ -21,6 +23,10 @@ class VitGames {
 
     public competition;
 
+    private ui;
+
+    private controls;
+
     constructor(options: options) {
         this.options = options;
 
@@ -31,6 +37,10 @@ class VitGames {
         this.score = Score.getInstance();
 
         this.competition = new Competition();
+
+        this.ui = new UI(this.options);
+
+        this.controls = new Controls(this.options);
     }
 }
 
