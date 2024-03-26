@@ -39,7 +39,7 @@ export default function PauseScreen() {
                         {gameData.name}
                     </div>
 
-                    <div className="text-2xl text-white font-[capsule] text-center">
+                    <div className="text-2xl text-white font-[capsule] text-center mb-8">
                         {score}
                     </div>
 
