@@ -1,9 +1,8 @@
 import axios from "axios";
-import { Auth } from "./auth";
-import { options } from "./types/options";
+import { Auth } from "./Auth";
 
 class Check {
-    private options: options;
+    private static instance: Check;
 
     private baseURL = "api.vit-rin.com";
 
@@ -13,14 +12,20 @@ class Check {
 
     private auth;
 
-    constructor(options: options) {
-        this.options = options;
-
+    constructor() {
         this.client = axios.create({
             baseURL: `https://${this.baseURL}`,
         });
 
-        this.auth = new Auth();
+        this.auth = Auth.getInstance();
+    }
+
+    public static getInstance(): Check {
+        if (!this.instance) {
+            this.instance = new Check();
+        }
+
+        return this.instance;
     }
 
     private isTimestampFresh(parsedDate: Date): boolean {
@@ -50,7 +55,7 @@ class Check {
         return parsedDate;
     }
 
-    async authenticated(): Promise<any> {
+    async isAuthenticated(): Promise<any> {
         try {
             const response = await this.client.post(
                 `/${this.version}/auth/check`,
@@ -71,7 +76,7 @@ class Check {
         }
     }
 
-    async adsViewed(): Promise<any> {
+    async isViewedAds(): Promise<any> {
         const cookies = document.cookie.split(";");
 
         for (const cookie of cookies) {

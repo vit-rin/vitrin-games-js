@@ -1,4 +1,16 @@
 class Auth {
+    private static instance: Auth;
+
+    private constructor() {}
+
+    public static getInstance(): Auth {
+        if (!this.instance) {
+            this.instance = new Auth();
+        }
+
+        return this.instance;
+    }
+
     getSessionToken(): string {
         const cookies = document.cookie.split(";");
 

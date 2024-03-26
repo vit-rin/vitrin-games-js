@@ -1,9 +1,21 @@
-export type options = {
-    gameId: string | undefined;
-    muteCallback: Function | undefined;
-    unmuteCallback: Function | undefined;
-    pauseCallback: Function | undefined;
-    resumeCallback: Function | undefined;
+export type OptionsType = Readonly<{
+    gameId?: string | null;
+
+    startCallback?: () => void;
+
+    pauseCallback?: () => void;
+    resumeCallback?: () => void;
+
+    replayCallback?: () => void;
+
+    muteCallback?: () => void;
+    unmuteCallback?: () => void;
+
     useUI?: boolean;
-    preventDefault?: boolean | string | Array<string>;
-};
+
+    preventDefault?: boolean | string | ReadonlyArray<string>;
+
+    autoCheckAuth?: boolean;
+
+    autoOpenAds?: boolean;
+}>;

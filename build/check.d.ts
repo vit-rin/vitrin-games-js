@@ -1,14 +1,14 @@
-import { options } from "./types/options";
 declare class Check {
-    private options;
+    private static instance;
     private baseURL;
     private client;
     private version;
     private auth;
-    constructor(options: options);
+    constructor();
+    static getInstance(): Check;
     private isTimestampFresh;
     private validateTimestamp;
-    authenticated(): Promise<any>;
-    adsViewed(): Promise<any>;
+    isAuthenticated(): Promise<any>;
+    isViewedAds(): Promise<any>;
 }
 export { Check };

@@ -1,26 +1,45 @@
+// webpack.config.js
+
 const path = require("path");
 
 module.exports = {
-    entry: {
-        "vitrin-games": "./src/vitrin-games.ts",
-    },
+    entry: "./src/VitGames.ts",
     output: {
         path: path.resolve(__dirname, "build"),
-        filename: "[name].js",
-        library: "VitRin Games JavaScript SDK",
+        filename: "vitgames.browser.js",
+        library: "VitGames JavaScript SDK",
         libraryTarget: "umd",
         globalObject: "this",
     },
-    mode: "production",
     resolve: {
-        extensions: [".ts", ".js"],
+        extensions: [".ts", ".tsx", ".js"],
     },
     module: {
         rules: [
             {
-                test: /\.ts$/,
+                test: /\.tsx?$/,
                 exclude: /node_modules/,
                 use: "ts-loader",
+            },
+            {
+                test: /\.js$/,
+                exclude: /node_modules/,
+                use: {
+                    loader: "babel-loader",
+                    options: {
+                        presets: ["@babel/preset-env", "@babel/preset-react"],
+                    },
+                },
+            },
+            {
+                test: /\.scss$/i,
+                include: path.resolve(__dirname, "src"),
+                use: [
+                    "style-loader",
+                    "css-loader",
+                    "postcss-loader",
+                    "sass-loader",
+                ],
             },
         ],
     },

@@ -1,24 +1,15 @@
+import { getRecoil, setRecoil } from "recoil-nexus";
+import { scoreState } from "./states/scoreState";
+
 class Score {
-    private static instance: Score;
-
-    private score = 0;
-
     constructor() {}
 
-    public static getInstance(): Score {
-        if (!this.instance) {
-            this.instance = new Score();
-        }
-
-        return this.instance;
-    }
-
     set(score: number) {
-        this.score = score;
+        setRecoil(scoreState, score);
     }
 
     get() {
-        return this.score;
+        getRecoil(scoreState);
     }
 }
 

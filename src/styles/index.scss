@@ -1,0 +1,10 @@
+@font-face {
+    font-family: capsule;
+    src: url("https://games.vit-rin.com/fonts/Capsule-Black.woff2")
+        format("woff2");
+    font-weight: 900;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
