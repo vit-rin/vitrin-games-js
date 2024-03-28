@@ -1,6 +1,6 @@
 declare class Score {
     constructor();
     set(score: number): void;
-    get(): void;
+    get(): number;
 }
 export { Score };

@@ -9,7 +9,7 @@ class Score {
     }
 
     get() {
-        getRecoil(scoreState);
+        return getRecoil(scoreState);
     }
 }
 
