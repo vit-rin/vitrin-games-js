@@ -46,13 +46,13 @@ class Controls {
     }
 
     private handlePreventDefault() {
-        window.addEventListener(
-            this.events.touchstart,
-            this.preventDefaultEvent,
-            {
-                passive: false,
-            }
-        );
+        // window.addEventListener(
+        //     this.events.touchstart,
+        //     this.preventDefaultEvent,
+        //     {
+        //         passive: false,
+        //     }
+        // );
 
         window.addEventListener(
             this.events.touchmove,
@@ -62,17 +62,17 @@ class Controls {
             }
         );
 
-        window.addEventListener(
-            this.events.touchend,
-            this.preventDefaultEvent,
-            {
-                passive: false,
-            }
-        );
+        // window.addEventListener(
+        //     this.events.touchend,
+        //     this.preventDefaultEvent,
+        //     {
+        //         passive: false,
+        //     }
+        // );
 
-        window.addEventListener(this.events.click, this.preventDefaultEvent, {
-            passive: false,
-        });
+        // window.addEventListener(this.events.click, this.preventDefaultEvent, {
+        //     passive: false,
+        // });
     }
 
     private preventDefaultEvent(event: Event) {
@@ -157,19 +157,19 @@ class Controls {
     }
 
     destroy() {
-        window.removeEventListener(
-            this.events.touchstart,
-            this.preventDefaultEvent
-        );
+        // window.removeEventListener(
+        //     this.events.touchstart,
+        //     this.preventDefaultEvent
+        // );
         window.removeEventListener(
             this.events.touchmove,
             this.preventDefaultEvent
         );
-        window.removeEventListener(
-            this.events.touchend,
-            this.preventDefaultEvent
-        );
-        window.removeEventListener(this.events.click, this.preventDefaultEvent);
+        // window.removeEventListener(
+        //     this.events.touchend,
+        //     this.preventDefaultEvent
+        // );
+        // window.removeEventListener(this.events.click, this.preventDefaultEvent);
     }
 }
 
