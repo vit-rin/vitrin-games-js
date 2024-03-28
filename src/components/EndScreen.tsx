@@ -37,7 +37,7 @@ export default function EndScreen() {
                 <div className="tw-flex tw-justify-center tw-items-center tw-fixed tw-h-screen tw-w-full tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-bg-black tw-bg-opacity-80 tw-z-50">
                     <div className="tw-container">
                         {competitionResult.result === "win" && (
-                            <div className="text-center tw-mb-4">
+                            <div className="tw-text-center tw-mb-4">
                                 <WinIcon />
                             </div>
                         )}
