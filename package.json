@@ -1,6 +1,6 @@
 {
     "name": "@vit-rin/games-js",
-    "version": "2.1.3",
+    "version": "2.1.4",
     "description": "VitRin Games JavaScript SDK",
     "main": "build/vitgames.browser.js",
     "scripts": {
