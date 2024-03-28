@@ -127,6 +127,7 @@ class Controls {
 
         if (this.competition.getId()) {
             setRecoil(competitionResultState, null);
+            this.competition.create();
         }
 
         setRecoil(scoreState, 0);
