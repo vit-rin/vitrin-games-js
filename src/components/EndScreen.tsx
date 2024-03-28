@@ -42,64 +42,74 @@ export default function EndScreen() {
                             </div>
                         )}
 
-                        <div
-                            className={`tw-text-5xl tw-text-center tw-font-[capsule] tw-mb-4 tw-capitalize ${
-                                competitionResult.result === "win"
-                                    ? "tw-text-[#FFBF44]"
-                                    : "tw-text-[#A6A8AB]"
-                            }`}
-                        >
-                            You{" "}
-                            {competitionResult.result === "loss"
-                                ? "lose"
-                                : competitionResult.result}
-                            {competitionResult.result === "win" && "!"}
-                        </div>
+                        {competitionResult.result !== "unknown" && (
+                            <>
+                                <div
+                                    className={`tw-text-5xl tw-text-center tw-font-[capsule] tw-mb-4 tw-capitalize ${
+                                        competitionResult.result === "win"
+                                            ? "tw-text-[#FFBF44]"
+                                            : "tw-text-[#A6A8AB]"
+                                    }`}
+                                >
+                                    You{" "}
+                                    {competitionResult.result === "loss"
+                                        ? "lose"
+                                        : competitionResult.result}
+                                    {competitionResult.result === "win" && "!"}
+                                </div>
 
-                        <div className="tw-text-2xl tw-text-white tw-text-center tw-font-[capsule] tw-mb-8">
-                            <span
-                                className={`${
-                                    competitionResult.result === "win"
-                                        ? "tw-text-[#FFBF44]"
-                                        : "tw-text-[#A6A8AB]"
-                                }`}
-                            ></span>
-                            <span
-                                className={`${
-                                    competitionResult.result === "win"
-                                        ? "tw-text-[#FFBF44]"
-                                        : "tw-text-[#A6A8AB]"
-                                }`}
-                            >
-                                {score}{" "}
-                                {competitionResult.result === "win"
-                                    ? ">"
-                                    : competitionResult.result === "tie"
-                                    ? "="
-                                    : "<"}
-                            </span>{" "}
-                            {gameData.metadata.min_score_to_reward}
-                        </div>
+                                <div className="tw-text-2xl tw-text-white tw-text-center tw-font-[capsule] tw-mb-8">
+                                    <span
+                                        className={`${
+                                            competitionResult.result === "win"
+                                                ? "tw-text-[#FFBF44]"
+                                                : "tw-text-[#A6A8AB]"
+                                        }`}
+                                    ></span>
+                                    <span
+                                        className={`${
+                                            competitionResult.result === "win"
+                                                ? "tw-text-[#FFBF44]"
+                                                : "tw-text-[#A6A8AB]"
+                                        }`}
+                                    >
+                                        {score}{" "}
+                                        {competitionResult.result === "win"
+                                            ? ">"
+                                            : competitionResult.result === "tie"
+                                            ? "="
+                                            : "<"}
+                                    </span>{" "}
+                                    {gameData.metadata.min_score_to_reward}
+                                </div>
 
-                        {competitionResult.transaction && (
-                            <div className="tw-bg-[#1F2023] tw-text-[#E0E2E2] tw-rounded-2xl tw-p-4 tw-mb-4 tw-flex tw-justify-start tw-items-center tw-font-[capsule] tw-w-full">
-                                {competitionResult.transaction.data.wallet.data
-                                    .slug === "v-ton" && <VTonIcon />}
+                                {competitionResult.transaction && (
+                                    <div className="tw-bg-[#1F2023] tw-text-[#E0E2E2] tw-rounded-2xl tw-p-4 tw-mb-4 tw-flex tw-justify-start tw-items-center tw-font-[capsule] tw-w-full">
+                                        {competitionResult.transaction.data
+                                            .wallet.data.slug === "v-ton" && (
+                                            <VTonIcon />
+                                        )}
 
-                                <span className="tw-ml-4 tw-text-2xl">
-                                    +{competitionResult.transaction.data.amount}
-                                </span>
-                            </div>
-                        )}
+                                        <span className="tw-ml-4 tw-text-2xl">
+                                            +
+                                            {
+                                                competitionResult.transaction
+                                                    .data.amount
+                                            }
+                                        </span>
+                                    </div>
+                                )}
 
-                        {competitionResult.rewards && (
-                            <div className="tw-bg-[#1F2023] tw-text-[#E0E2E2] tw-rounded-2xl tw-p-4 tw-mb-4 tw-flex tw-justify-start tw-items-center tw-font-[capsule] tw-w-full">
-                                <XPIcon />
+                                {competitionResult.rewards && (
+                                    <div className="tw-bg-[#1F2023] tw-text-[#E0E2E2] tw-rounded-2xl tw-p-4 tw-mb-4 tw-flex tw-justify-start tw-items-center tw-font-[capsule] tw-w-full">
+                                        <XPIcon />
 
-                                <span className="tw-ml-4 tw-text-2xl">
-                                    +{competitionResult.rewards.xp}
-                                </span>
-                            </div>
+                                        <span className="tw-ml-4 tw-text-2xl">
+                                            +{competitionResult.rewards.xp}
+                                        </span>
+                                    </div>
+                                )}
+                            </>
                         )}
 
                         <button
