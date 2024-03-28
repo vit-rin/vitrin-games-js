@@ -82,28 +82,24 @@ export default function EndScreen() {
                         </div>
 
                         {competitionResult.transaction && (
-                            <>
-                                <div className="tw-bg-[#1F2023] tw-text-[#E0E2E2] tw-rounded-2xl tw-p-4 tw-mb-4 tw-flex tw-justify-start tw-items-center tw-font-[capsule] tw-w-full">
-                                    {competitionResult.transaction.data.wallet
-                                        .data.slug === "v-ton" && <VTonIcon />}
+                            <div className="tw-bg-[#1F2023] tw-text-[#E0E2E2] tw-rounded-2xl tw-p-4 tw-mb-4 tw-flex tw-justify-start tw-items-center tw-font-[capsule] tw-w-full">
+                                {competitionResult.transaction.data.wallet.data
+                                    .slug === "v-ton" && <VTonIcon />}
 
-                                    <span className="tw-ml-4 tw-text-2xl">
-                                        +
-                                        {
-                                            competitionResult.transaction.data
-                                                .amount
-                                        }
-                                    </span>
-                                </div>
+                                <span className="tw-ml-4 tw-text-2xl">
+                                    +{competitionResult.transaction.data.amount}
+                                </span>
+                            </div>
+                        )}
 
-                                <div className="tw-bg-[#1F2023] tw-text-[#E0E2E2] tw-rounded-2xl tw-p-4 tw-mb-4 tw-flex tw-justify-start tw-items-center tw-font-[capsule] tw-w-full">
-                                    <XPIcon />
+                        {competitionResult.rewards && (
+                            <div className="tw-bg-[#1F2023] tw-text-[#E0E2E2] tw-rounded-2xl tw-p-4 tw-mb-4 tw-flex tw-justify-start tw-items-center tw-font-[capsule] tw-w-full">
+                                <XPIcon />
 
-                                    <span className="tw-ml-4 tw-text-2xl">
-                                        +{competitionResult.rewards?.xp}
-                                    </span>
-                                </div>
-                            </>
+                                <span className="tw-ml-4 tw-text-2xl">
+                                    +{competitionResult.rewards.xp}
+                                </span>
+                            </div>
                         )}
 
                         <button
