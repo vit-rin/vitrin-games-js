@@ -16,10 +16,10 @@ const Game = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        if (gameData) {
+        if (gameData || isFailed) {
             setLoading(false);
         }
-    }, [gameData]);
+    }, [gameData, isFailed]);
 
     if (loading) {
         return <LoadingScreen />;
