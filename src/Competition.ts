@@ -112,7 +112,7 @@ class Competition {
                 `/${this.version}/competitions`,
                 {
                     game_id: this.options.gameId,
-                    competition_type: this.type,
+                    competition_type: this.type ?? "solo",
                 },
                 {
                     headers: {
