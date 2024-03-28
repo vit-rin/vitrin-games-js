@@ -76,6 +76,7 @@ class Competition {
         if (this.options.autoCheckAuth) {
             if (competitionId) {
                 this.id = competitionId;
+                this.fetch();
             } else {
                 console.warn(
                     "Competition ID is not set. Trying to create new competition."
@@ -97,6 +98,10 @@ class Competition {
             this.type = response.data.data.competition_type;
         } catch (error) {
             console.error("Error in competition fetch:", error);
+            console.log("Trying to create new competition...");
+
+            this.create();
+
             throw error;
         }
     }
