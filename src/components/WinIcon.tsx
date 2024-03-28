@@ -1,8 +1,9 @@
 import React from "react";
 
-export default function WinIcon() {
+export default function WinIcon({ className }: any) {
     return (
         <svg
+            className={`${className}`}
             width="44"
             height="33"
             viewBox="0 0 44 33"
