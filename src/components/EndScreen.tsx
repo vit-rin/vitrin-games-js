@@ -36,10 +36,14 @@ export default function EndScreen() {
             {gameCurrent === "ended" && competitionResult && (
                 <div className="tw-flex tw-justify-center tw-items-center tw-fixed tw-h-screen tw-w-full tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-bg-black tw-bg-opacity-80 tw-z-50">
                     <div className="tw-container">
-                        {competitionResult.result === "win" && <WinIcon />}
+                        {competitionResult.result === "win" && (
+                            <div className="text-center tw-mb-4">
+                                <WinIcon />
+                            </div>
+                        )}
 
                         <div
-                            className={`tw-text-5xl tw-text-center tw-font-[capsule] tw-my-4 tw-capitalize ${
+                            className={`tw-text-5xl tw-text-center tw-font-[capsule] tw-mb-4 tw-capitalize ${
                                 competitionResult.result === "win"
                                     ? "tw-text-[#FFBF44]"
                                     : "tw-text-[#A6A8AB]"
