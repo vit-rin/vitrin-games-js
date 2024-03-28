@@ -34,38 +34,40 @@ export default function PauseScreen() {
     return (
         <>
             {gameCurrent === "paused" && (
-                <div className="flex flex-col justify-center items-center fixed h-screen w-full top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 z-50">
-                    <div className="text-5xl text-white text-center font-[capsule] mb-8">
-                        {gameData.name}
+                <div className="tw-flex tw-justify-center tw-items-center tw-fixed tw-h-screen tw-w-full tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-bg-black tw-bg-opacity-80 tw-z-50">
+                    <div className="tw-container">
+                        <div className="tw-text-5xl tw-text-white tw-text-center tw-font-[capsule] tw-mb-8">
+                            {gameData.name}
+                        </div>
+
+                        <div className="tw-text-2xl tw-text-white tw-font-[capsule] tw-text-center tw-mb-8">
+                            {score}
+                        </div>
+
+                        <button
+                            className="tw-bg-[#8B6BAF] tw-font-[capsule] tw-font-bold tw-text-white tw-text-lg tw-p-4.25 tw-w-full tw-h-14 tw-rounded-xl tw-flex tw-justify-center tw-items-center tw-mb-4"
+                            onClick={resume}
+                        >
+                            <PlayIcon />
+                            <span className="tw-ml-2">Continue</span>
+                        </button>
+
+                        <button
+                            className="tw-border-2 tw-border-white tw-font-[capsule] tw-font-bold tw-text-white tw-text-lg tw-p-4.25 tw-w-full tw-h-14 tw-rounded-xl tw-flex tw-justify-center tw-items-center tw-mb-4"
+                            onClick={replay}
+                        >
+                            <ReplayIcon />
+                            <span className="tw-ml-2">Replay</span>
+                        </button>
+
+                        <button
+                            className="tw-border-2 tw-border-white tw-font-[capsule] tw-font-bold tw-text-white tw-text-lg tw-p-4.25 tw-w-full tw-h-14 tw-rounded-xl tw-flex tw-justify-center tw-items-center"
+                            onClick={exit}
+                        >
+                            <ExitIcon />
+                            <span className="tw-ml-2">Exit</span>
+                        </button>
                     </div>
-
-                    <div className="text-2xl text-white font-[capsule] text-center mb-8">
-                        {score}
-                    </div>
-
-                    <button
-                        className="bg-[#8B6BAF] font-[capsule] font-bold text-white text-lg p-4.25 w-80 h-14 rounded-xl flex justify-center items-center mb-4"
-                        onClick={resume}
-                    >
-                        <PlayIcon />
-                        <span className="ml-2">Continue</span>
-                    </button>
-
-                    <button
-                        className="border-2 border-white font-[capsule] font-bold text-white text-lg p-4.25 w-80 h-14 rounded-xl flex justify-center items-center mb-4"
-                        onClick={replay}
-                    >
-                        <ReplayIcon />
-                        <span className="ml-2">Replay</span>
-                    </button>
-
-                    <button
-                        className="border-2 border-white font-[capsule] font-bold text-white text-lg p-4.25 w-80 h-14 rounded-xl flex justify-center items-center"
-                        onClick={exit}
-                    >
-                        <ExitIcon />
-                        <span className="ml-2">Exit</span>
-                    </button>
                 </div>
             )}
         </>

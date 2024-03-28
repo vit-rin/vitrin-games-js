@@ -8,13 +8,13 @@ export default function ScoreNumber() {
     const [gameData] = useRecoilState<any>(gameDataState);
 
     return (
-        <div className="font-bold font-[capsule] text-white text-xl">
+        <div className="tw-font-bold tw-font-[capsule] tw-text-white tw-text-xl">
             {gameData && (
                 <>
                     <span
                         className={`${
                             score > gameData.metadata.min_score_to_reward &&
-                            "text-[#FFBF44]"
+                            "tw-text-[#FFBF44]"
                         }`}
                     >
                         {score} {">"}

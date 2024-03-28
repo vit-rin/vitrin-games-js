@@ -24,21 +24,21 @@ export default function StartScreen() {
                 !gamePlaying &&
                 !gamePaused &&
                 gameData && (
-                    <div className="flex justify-center items-center fixed h-screen w-full top-0 left-0 right-0 bottom-0 bg-black bg-opacity-80 z-50">
-                        <div className="text-center">
-                            <div className="text-5xl text-white font-[capsule] mb-8">
+                    <div className="tw-flex tw-justify-center tw-items-center tw-fixed tw-h-screen tw-w-full tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-bg-black tw-bg-opacity-80 tw-z-50">
+                        <div className="tw-container tw-text-center">
+                            <div className="tw-text-5xl tw-text-white tw-font-[capsule] tw-mb-8">
                                 {gameData.name}
                             </div>
 
-                            <div className="text-2xl text-white font-[capsule] mb-8">
-                                <span className="text-[#FFBF44]">
+                            <div className="tw-text-2xl tw-text-white tw-font-[capsule] tw-mb-8">
+                                <span className="tw-text-[#FFBF44]">
                                     Winner {">"}
                                 </span>{" "}
                                 {gameData.metadata.min_score_to_reward}
                             </div>
 
                             <button
-                                className="bg-[#8B6BAF] font-[capsule] font-bold text-white text-lg p-4.25 w-80 h-14 rounded-xl"
+                                className="tw-bg-[#8B6BAF] tw-font-[capsule] tw-font-bold tw-text-white tw-text-lg tw-p-4.25 tw-w-full tw-h-14 tw-rounded-xl"
                                 onClick={start}
                             >
                                 Start

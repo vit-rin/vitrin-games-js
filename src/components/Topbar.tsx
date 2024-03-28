@@ -9,22 +9,26 @@ export default function Topbar() {
     const options: OptionsType = Options.getInstance().get();
 
     return (
-        <div className="fixed top-0 left-0 right-0 flex justify-between items-center px-4 w-full h-12 bg-[#404041]">
-            {typeof options.pauseCallback !== "undefined" &&
-            typeof options.resumeCallback !== "undefined" ? (
-                <PauseButton />
-            ) : (
-                <div></div>
-            )}
+        <div className="tw-fixed tw-top-0 tw-left-0 tw-right-0 px-4 tw-w-full tw-bg-[#404041] tw-z-50">
+            <div className="tw-container">
+                <div className="tw-flex tw-justify-between tw-items-center tw-h-12">
+                    {typeof options.pauseCallback !== "undefined" &&
+                    typeof options.resumeCallback !== "undefined" ? (
+                        <PauseButton />
+                    ) : (
+                        <div></div>
+                    )}
 
-            <ScoreNumber />
+                    <ScoreNumber />
 
-            {typeof options.muteCallback !== "undefined" &&
-            typeof options.unmuteCallback !== "undefined" ? (
-                <MuteButton />
-            ) : (
-                <div></div>
-            )}
+                    {typeof options.muteCallback !== "undefined" &&
+                    typeof options.unmuteCallback !== "undefined" ? (
+                        <MuteButton />
+                    ) : (
+                        <div></div>
+                    )}
+                </div>
+            </div>
         </div>
     );
 }

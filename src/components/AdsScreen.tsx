@@ -31,7 +31,7 @@ export default function AdsScreen() {
     return (
         <>
             {adsShowing && options.autoOpenAds && (
-                <div className="flex items-center justify-center fixed h-screen w-full top-0 left-0 right-0 bottom-0 bg-black bg-opacity-70 overflow-auto z-50">
+                <div className="tw-flex tw-items-center tw-justify-center tw-fixed tw-h-screen tw-w-full tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-bg-black tw-bg-opacity-70 tw-fixed-auto tw-z-50">
                     <iframe
                         src={`https://games.vit-rin.com/ads/view?game_id=${options.gameId}`}
                         width={"100%"}
