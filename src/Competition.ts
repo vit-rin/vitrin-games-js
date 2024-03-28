@@ -150,7 +150,6 @@ class Competition {
             );
 
             setRecoil(competitionResultState, response.data.data);
-            setRecoil(scoreState, 0);
         } catch (error) {
             console.error("Error in competition finalize:", error);
             throw error;
