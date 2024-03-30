@@ -3,15 +3,18 @@ import MuteIcon from "./MuteIcon";
 import { soundState } from "../states/soundState";
 import { useRecoilState } from "recoil";
 import UnmuteIcon from "./UnmuteIcon";
+import { Controls } from "../Controls";
 
 export default function MuteButton() {
+    const controls = Controls.getInstance();
+
     const [sound, setSound] = useRecoilState(soundState);
 
     const muteToggle = () => {
         if (sound === "mute") {
-            setSound("unmute");
+            controls.unmute();
         } else {
-            setSound("mute");
+            controls.mute();
         }
     };
 
