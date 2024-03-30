@@ -28,7 +28,7 @@ export default function PauseScreen() {
     };
 
     const exit = () => {
-        window.location.href = `https://games.vit-rin.com/${options.gameId}/`;
+        window.location.href = `https://games.vit-rin.com/${gameData.slug}/`;
     };
 
     return (

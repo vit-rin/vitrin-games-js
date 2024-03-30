@@ -29,7 +29,7 @@ export default function EndScreen() {
     };
 
     const exit = () => {
-        window.location.href = `https://games.vit-rin.com/${options.gameId}/`;
+        window.location.href = `https://games.vit-rin.com/${gameData.slug}/`;
     };
 
     return (
