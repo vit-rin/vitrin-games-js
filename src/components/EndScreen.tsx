@@ -78,14 +78,17 @@ export default function EndScreen() {
                                                     : "tw-text-[#A6A8AB]"
                                             }`}
                                         >
-                                            {score}{" "}
-                                            {competitionResult.result === "win"
-                                                ? ">"
-                                                : competitionResult.result ===
-                                                  "tie"
-                                                ? "="
-                                                : "<"}
-                                        </span>{" "}
+                                            {score}
+                                            <span className="tw-mx-4">
+                                                {competitionResult.result ===
+                                                "win"
+                                                    ? ">"
+                                                    : competitionResult.result ===
+                                                      "tie"
+                                                    ? "="
+                                                    : "<"}
+                                            </span>
+                                        </span>
                                         {gameData.metadata.min_score_to_reward}
                                     </div>
 
