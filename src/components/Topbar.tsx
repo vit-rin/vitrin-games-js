@@ -16,7 +16,7 @@ export default function Topbar() {
                     typeof options.resumeCallback !== "undefined" ? (
                         <PauseButton />
                     ) : (
-                        <div></div>
+                        <div className="tw-w-8 tw-h-8"></div>
                     )}
 
                     <ScoreNumber />
@@ -25,7 +25,7 @@ export default function Topbar() {
                     typeof options.unmuteCallback !== "undefined" ? (
                         <MuteButton />
                     ) : (
-                        <div></div>
+                        <div className="tw-w-8 tw-h-8"></div>
                     )}
                 </div>
             </div>
