@@ -79,7 +79,7 @@ export default function EndScreen() {
                                             }`}
                                         >
                                             {score}
-                                            <span className="tw-mx-4">
+                                            <span className="tw-mx-2">
                                                 {competitionResult.result ===
                                                 "win"
                                                     ? ">"
