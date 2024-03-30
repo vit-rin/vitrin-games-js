@@ -1,6 +1,8 @@
 import { OptionsType } from "../types/options";
 
 export const DefaultOptions: OptionsType = {
+    gameId: null,
+    
     startCallback: undefined,
 
     pauseCallback: undefined,
@@ -10,8 +12,6 @@ export const DefaultOptions: OptionsType = {
 
     muteCallback: undefined,
     unmuteCallback: undefined,
-
-    gameId: null,
 
     useUI: true,
 

@@ -110,8 +110,6 @@ export const DefaultOptions: OptionsType = {
     muteCallback: undefined,
     unmuteCallback: undefined,
 
-    gameId: null,
-
     useUI: true,
 
     preventDefault: true,
