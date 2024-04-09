@@ -4,7 +4,6 @@ import { Score } from "./Score";
 import { competitionResultState } from "./states/competitionResultState";
 import { competitionDataState } from "./states/competitionDataState";
 import { setRecoil } from "recoil-nexus";
-import { scoreState } from "./states/scoreState";
 import { OptionsType } from "./types/options";
 import { Options } from "./Options";
 
@@ -51,6 +50,10 @@ class Competition {
 
     getId() {
         return this.id;
+    }
+
+    getType() {
+        return this.type;
     }
 
     private handleCompetitionType() {

@@ -13,23 +13,29 @@ import { gameDataState } from "../states/gameDataState";
 import VTonIcon from "./VTonIcon";
 import XPIcon from "./XPIcon";
 import LoadingSpinner from "./LoadingSpinner";
+import { Competition } from "../Competition";
+import { competitionDataState } from "../states/competitionDataState";
 
 export default function EndScreen() {
-    const options: OptionsType = Options.getInstance().get();
-
     const controls = Controls.getInstance();
+    const competition = Competition.getInstance();
 
     const [gameCurrent] = useRecoilState(gameCurrentState);
     const [gameData] = useRecoilState<any>(gameDataState);
     const [competitionResult] = useRecoilState<any>(competitionResultState);
     const [score] = useRecoilState(scoreState);
+    const [competitionData] = useRecoilState<any>(competitionDataState);
 
     const replay = () => {
         controls.replay();
     };
 
+    const rematch = () => {
+        window.location.href = `https://games.vit-rin.com/games/${gameData.slug}/pvp`;
+    };
+
     const exit = () => {
-        window.location.href = `https://games.vit-rin.com/${gameData.slug}/`;
+        window.location.href = `https://games.vit-rin.com/games/${gameData.slug}`;
     };
 
     return (
@@ -89,7 +95,11 @@ export default function EndScreen() {
                                                     : "<"}
                                             </span>
                                         </span>
-                                        {gameData.metadata.min_score_to_reward}
+                                        {competition.getType() == "solo" &&
+                                            gameData.metadata
+                                                .min_score_to_reward}
+                                        {competition.getType() == "pvp" &&
+                                            competitionData.target_score}
                                     </div>
 
                                     {competitionResult.transaction && (
@@ -124,13 +134,25 @@ export default function EndScreen() {
                                 </div>
                             )}
 
-                            <button
-                                className="tw-bg-[#8B6BAF] tw-font-[capsule] tw-font-bold tw-text-white tw-text-lg tw-p-4.25 tw-w-full tw-h-14 tw-rounded-xl tw-flex tw-justify-center tw-items-center tw-mb-4"
-                                onClick={replay}
-                            >
-                                <ReplayIcon />
-                                <span className="tw-ml-2">Replay</span>
-                            </button>
+                            {competition.getType() == "solo" && (
+                                <button
+                                    className="tw-bg-[#8B6BAF] tw-font-[capsule] tw-font-bold tw-text-white tw-text-lg tw-p-4.25 tw-w-full tw-h-14 tw-rounded-xl tw-flex tw-justify-center tw-items-center tw-mb-4"
+                                    onClick={replay}
+                                >
+                                    <ReplayIcon />
+                                    <span className="tw-ml-2">Replay</span>
+                                </button>
+                            )}
+
+                            {competition.getType() == "pvp" && (
+                                <button
+                                    className="tw-bg-[#8B6BAF] tw-font-[capsule] tw-font-bold tw-text-white tw-text-lg tw-p-4.25 tw-w-full tw-h-14 tw-rounded-xl tw-flex tw-justify-center tw-items-center tw-mb-4"
+                                    onClick={rematch}
+                                >
+                                    <ReplayIcon />
+                                    <span className="tw-ml-2">Rematch</span>
+                                </button>
+                            )}
 
                             <button
                                 className="tw-border-2 tw-border-white tw-font-[capsule] tw-font-bold tw-text-white tw-text-lg tw-p-4.25 tw-w-full tw-h-14 tw-rounded-xl tw-flex tw-justify-center tw-items-center"

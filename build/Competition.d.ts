@@ -11,6 +11,7 @@ declare class Competition {
     constructor();
     static getInstance(): Competition;
     getId(): string | null;
+    getType(): string;
     private handleCompetitionType;
     private handleCompetitionId;
     fetch(): Promise<any>;

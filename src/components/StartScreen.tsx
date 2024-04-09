@@ -5,9 +5,11 @@ import { gameCurrentState } from "../states/gameCurrentState";
 import { gamePausedState } from "../states/gamePausedState";
 import { gameDataState } from "../states/gameDataState";
 import { Controls } from "../Controls";
+import { Competition } from "../Competition";
 
 export default function StartScreen() {
     const controls = Controls.getInstance();
+    const competition = Competition.getInstance();
 
     const [gamePlaying] = useRecoilState(gamePlayingState);
     const [gamePaused] = useRecoilState(gamePausedState);
@@ -34,7 +36,9 @@ export default function StartScreen() {
                                 <span className="tw-text-[#FFBF44]">
                                     Winner {">"}
                                 </span>{" "}
-                                {gameData.metadata.min_score_to_reward}
+                                {competition.getType() == "solo" &&
+                                    gameData.metadata.min_score_to_reward}
+                                {competition.getType() == "pvp" && "Max Score"}
                             </div>
 
                             <button
