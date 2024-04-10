@@ -98,7 +98,7 @@ class Competition {
             setRecoil(competitionDataState, response.data.data);
 
             this.id = response.data.data.id;
-            this.type = response.data.data.competition_type;
+            this.type = response.data.data.type;
         } catch (error) {
             console.error("Error in competition fetch:", error);
             console.log("Trying to create new competition...");
@@ -125,7 +125,7 @@ class Competition {
             );
 
             this.id = response.data.data.id;
-            this.type = response.data.data.competition_type;
+            this.type = response.data.data.type;
 
             setRecoil(competitionDataState, response.data.data);
 
