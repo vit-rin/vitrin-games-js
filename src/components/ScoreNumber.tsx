@@ -20,8 +20,13 @@ export default function ScoreNumber() {
                 <>
                     <span
                         className={`${
-                            score > gameData.metadata.min_score_to_reward &&
-                            "tw-text-[#FFBF44]"
+                            (competition.getType() == "solo" &&
+                                score >
+                                    gameData.metadata.min_score_to_reward) ||
+                            (competition.getType() == "pvp" &&
+                                competitionData &&
+                                score > competitionData.target_score &&
+                                "tw-text-[#FFBF44]")
                         }`}
                     >
                         {score} {competition.getType() == "solo" && ">"}
