@@ -1,9 +1,7 @@
 import React from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { gameCurrentState } from "../states/gameCurrentState";
 import ReplayIcon from "./ReplayIcon";
-import { OptionsType } from "../types/options";
-import { Options } from "../Options";
 import ExitIcon from "./ExitIcon";
 import { scoreState } from "../states/scoreState";
 import { Controls } from "../Controls";
@@ -15,6 +13,8 @@ import XPIcon from "./XPIcon";
 import LoadingSpinner from "./LoadingSpinner";
 import { Competition } from "../Competition";
 import { competitionDataState } from "../states/competitionDataState";
+import { Check } from "../Check";
+import { adsShowingState } from "../states/adsShowingState";
 
 export default function EndScreen() {
     const controls = Controls.getInstance();
@@ -25,9 +25,25 @@ export default function EndScreen() {
     const [competitionResult] = useRecoilState<any>(competitionResultState);
     const [score] = useRecoilState(scoreState);
     const [competitionData] = useRecoilState<any>(competitionDataState);
+    const setAdsShowing = useSetRecoilState(adsShowingState);
+
+    const check = Check.getInstance();
 
     const replay = () => {
-        controls.replay();
+        setAdsShowing(true);
+        replayAfterAdsWatched();
+    };
+
+    const replayAfterAdsWatched = () => {
+        let interval = setInterval(async () => {
+            if (await check.isViewedAds()) {
+                setAdsShowing(false);
+                controls.replay();
+                clearInterval(interval);
+            }
+        }, 1000);
+
+        return interval;
     };
 
     const rematch = () => {

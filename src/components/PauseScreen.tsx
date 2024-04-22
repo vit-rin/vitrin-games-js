@@ -1,5 +1,5 @@
 import React from "react";
-import { useRecoilState } from "recoil";
+import { useRecoilState, useSetRecoilState } from "recoil";
 import { gameCurrentState } from "../states/gameCurrentState";
 import PlayIcon from "./PlayIcon";
 import ReplayIcon from "./ReplayIcon";
@@ -9,22 +9,40 @@ import ExitIcon from "./ExitIcon";
 import { gameDataState } from "../states/gameDataState";
 import { scoreState } from "../states/scoreState";
 import { Controls } from "../Controls";
+import { Check } from "../Check";
+import { adsShowingState } from "../states/adsShowingState";
 
 export default function PauseScreen() {
     const options: OptionsType = Options.getInstance().get();
 
     const controls = Controls.getInstance();
 
+    const check = Check.getInstance();
+
     const [gameCurrent] = useRecoilState(gameCurrentState);
     const [gameData] = useRecoilState<any>(gameDataState);
     const [score] = useRecoilState(scoreState);
+    const setAdsShowing = useSetRecoilState(adsShowingState);
 
     const resume = () => {
         controls.resume();
     };
 
     const replay = () => {
-        controls.replay();
+        setAdsShowing(true);
+        replayAfterAdsWatched();
+    };
+
+    const replayAfterAdsWatched = () => {
+        let interval = setInterval(async () => {
+            if (await check.isViewedAds()) {
+                setAdsShowing(false);
+                controls.replay();
+                clearInterval(interval);
+            }
+        }, 1000);
+
+        return interval;
     };
 
     const exit = () => {
