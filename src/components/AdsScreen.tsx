@@ -4,11 +4,13 @@ import { Options } from "../Options";
 import { adsShowingState } from "../states/adsShowingState";
 import { useRecoilState } from "recoil";
 import { Check } from "../Check";
+import { adsCurrentPlaceState } from "../states/adsCurrentPlaceState";
 
 export default function AdsScreen() {
     const options: OptionsType = Options.getInstance().get();
 
     const [adsShowing, setAdsShowing] = useRecoilState(adsShowingState);
+    const [adsCurrentPlace] = useRecoilState(adsCurrentPlaceState);
 
     const check = Check.getInstance();
 
@@ -33,7 +35,9 @@ export default function AdsScreen() {
             {adsShowing && options.autoOpenAds && (
                 <div className="tw-flex tw-items-center tw-justify-center tw-fixed tw-h-screen tw-w-full tw-top-0 tw-left-0 tw-right-0 tw-bottom-0 tw-bg-black tw-bg-opacity-70 tw-fixed-auto tw-z-50">
                     <iframe
-                        src={`https://games.vit-rin.com/ads/view?game_id=${options.gameId}`}
+                        src={`https://ads.vit-rin.com/view?place=${adsCurrentPlace}&page_url=${encodeURIComponent(
+                            window.location.origin + window.location.pathname
+                        )}`}
                         width={"100%"}
                         height={"100%"}
                         style={{ border: "none" }}

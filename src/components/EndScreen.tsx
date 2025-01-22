@@ -15,6 +15,7 @@ import { Competition } from "../Competition";
 import { competitionDataState } from "../states/competitionDataState";
 import { Check } from "../Check";
 import { adsShowingState } from "../states/adsShowingState";
+import { adsCurrentPlaceState } from "../states/adsCurrentPlaceState";
 
 export default function EndScreen() {
     const controls = Controls.getInstance();
@@ -26,10 +27,11 @@ export default function EndScreen() {
     const [score] = useRecoilState(scoreState);
     const [competitionData] = useRecoilState<any>(competitionDataState);
     const setAdsShowing = useSetRecoilState(adsShowingState);
-
+    const setAdsCurrentPlace = useSetRecoilState(adsCurrentPlaceState);
     const check = Check.getInstance();
 
     const replay = () => {
+        setAdsCurrentPlace("before-replay-game");
         setAdsShowing(true);
         replayAfterAdsWatched();
     };
